@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Autism_Project</string>
+    <string name="play">Play</string>
+    <string name="set_alarm">Set Alarm</string>
+    <string name="math">Math</string>
+    <string name="picture_puzzle">picture puzzle</string>
+    <string name="numbers">Numbers</string>
+    <string name="letters">Letters</string>
+</resources>
