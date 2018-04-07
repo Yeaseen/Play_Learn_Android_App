@@ -23,14 +23,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Letters">
+        <activity android:name=".Letters">
             <intent-filter>
                 <action android:name="com.example.asus.autism_project.Letters" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".AlarmSelect"></activity>
     </application>
 
 </manifest>

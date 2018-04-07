@@ -9,12 +9,15 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private static Button play_btn;
+    private static Button alarm_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         onClickPlayButtonListener();
+        onClickAlarmButtonListener();
+
     }
 
     public void onClickPlayButtonListener(){
@@ -30,4 +33,20 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
+    public void onClickAlarmButtonListener(){
+        alarm_btn = (Button)findViewById(R.id.button2);
+
+        alarm_btn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent_AlarmSelect= new Intent(MainActivity.this,AlarmSelect.class);
+                        startActivity(intent_AlarmSelect);
+                    }
+                }
+        );
+    }
+
+
+
 }
