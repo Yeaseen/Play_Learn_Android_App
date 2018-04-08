@@ -7,4 +7,7 @@
     <string name="numbers">Numbers</string>
     <string name="letters">Letters</string>
     <string name="set_breakfast">set breakfast</string>
+    <string name="did_you_set_the_alarm">DId you set the alarm?</string>
+    <string name="alarm_on">Alarm on</string>
+    <string name="alarm_off">alarm off</string>
 </resources>
