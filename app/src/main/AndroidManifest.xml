@@ -30,7 +30,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlarmSelect"></activity>
+        <activity android:name=".AlarmSelect" />
+        <activity android:name=".Breakfast"></activity>
     </application>
 
 </manifest>
