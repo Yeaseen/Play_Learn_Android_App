@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,7 +41,7 @@ public class Breakfast extends AppCompatActivity {
         updateText = (TextView)findViewById(R.id.updateText);
 
 
-        myIntent= new Intent(this.context,Alarm_Receiver.class);
+        myIntent= new Intent(this.context,MyReceiver.class);
         calendar= Calendar.getInstance();
 
         setOnClickAlarmOnListener();
@@ -68,9 +69,12 @@ public class Breakfast extends AppCompatActivity {
 
                         myIntent.putExtra("extra", "yes");
 
-                        pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+                        Log.e("Context","okkapun");
 
-                        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                        pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+                        Log.e("Context","after pending");
+                        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+500, pendingIntent);
+                        Log.e("Context","after alrmamngr");
 
                     }
                 }

@@ -31,7 +31,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".AlarmSelect" />
-        <activity android:name=".Breakfast"></activity>
+        <activity android:name=".Breakfast" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>
