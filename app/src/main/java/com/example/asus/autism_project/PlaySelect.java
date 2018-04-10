@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class PlaySelect extends AppCompatActivity {
-    private static Button letters_btn;
+    private  Button letters_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

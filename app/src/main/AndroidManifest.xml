@@ -36,7 +36,12 @@
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
+
+        <service
+            android:name=".RingtonePlayingService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

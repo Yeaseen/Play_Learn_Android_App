@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class AlarmSelect extends AppCompatActivity {
-    public static Button breakfastBttn;
+    public  Button breakfastBttn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

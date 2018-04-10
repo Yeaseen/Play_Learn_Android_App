@@ -8,9 +8,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Letters extends AppCompatActivity {
-    public static ImageButton banana_btn;
-    public static ImageButton cat_btn;
-    public static ImageButton elephant_btn;
+    public  ImageButton banana_btn;
+    public  ImageButton cat_btn;
+    public  ImageButton elephant_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -13,6 +13,6 @@ public class MyReceiver extends BroadcastReceiver {
         // an Intent broadcast.
         //throw new UnsupportedOperationException("Not yet implemented");
         String state = intent.getExtras().getString("extra");
-        Log.e("Alarm_Receiver","we r in rcve"+state);
+        Log.e("Alarm_Receiver","we r in receiver and get from Breakfast: "+state);
     }
 }

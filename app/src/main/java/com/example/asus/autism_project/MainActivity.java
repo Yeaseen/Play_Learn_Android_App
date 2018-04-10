@@ -8,8 +8,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Button play_btn;
-    private static Button alarm_btn;
+    private  Button play_btn;
+    private  Button alarm_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

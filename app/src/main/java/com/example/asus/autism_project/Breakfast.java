@@ -19,10 +19,10 @@ import java.util.Calendar;
 public class Breakfast extends AppCompatActivity {
 
     public static AlarmManager alarmManager;
-    public static TimePicker timePicker;
-    public static TextView updateText;
-    public static Button alarmOn;
-    public static Button alarmoff;
+    public  TimePicker timePicker;
+    public  TextView updateText;
+    public  Button alarmOn;
+    public  Button alarmoff;
     public static Intent myIntent;
     public static Calendar calendar;
     public static PendingIntent pendingIntent;
@@ -66,11 +66,7 @@ public class Breakfast extends AppCompatActivity {
                         String h=String.valueOf(hour);
                         String m=String.valueOf(min);
                         set_alarm_text("Alarm set to: "+h+":"+m );
-
                         myIntent.putExtra("extra", "yes");
-
-                        Log.e("Context","okkapun");
-
                         pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,PendingIntent.FLAG_UPDATE_CURRENT);
                         Log.e("Context","after pending");
                         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+500, pendingIntent);
@@ -89,7 +85,10 @@ public class Breakfast extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        set_alarm_text("Alarm OFF!!!");
+                        myIntent.putExtra("extra","nope");
+                        sendBroadcast(myIntent);
+                        alarmManager.cancel(pendingIntent);
+                        set_alarm_text("Alarm canceled");
                     }
                 }
         );
