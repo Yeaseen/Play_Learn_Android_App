@@ -17,13 +17,13 @@
         android:layout_marginTop="120dp"
         android:onClick="onClick"
         android:text="@string/letters"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/numBttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/numBttn"
         android:layout_width="149dp"
         android:layout_height="48dp"
         android:layout_marginBottom="36dp"
@@ -31,27 +31,28 @@
         android:layout_marginStart="136dp"
         android:layout_marginTop="36dp"
         android:text="@string/numbers"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/mathBttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/mathBttn"
         android:layout_width="159dp"
         android:layout_height="48dp"
         android:layout_marginBottom="38dp"
         android:layout_marginEnd="160dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="36dp"
+        android:onClick="onClick"
         android:text="@string/math"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintBottom_toTopOf="@+id/picBttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/numBttn" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/picBttn"
         android:layout_width="169dp"
         android:layout_height="48dp"
         android:layout_marginBottom="53dp"
@@ -62,5 +63,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/mathBttn" />
 </android.support.constraint.ConstraintLayout>

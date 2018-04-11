@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class PlaySelect extends AppCompatActivity implements View.OnClickListener {
     private  Button letters_btn;
+    private Button math_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,10 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_play_select);
         letters_btn = (Button)findViewById(R.id.button3);
         letters_btn.setOnClickListener(this);
+
+        math_btn = (Button)findViewById(R.id.mathBttn);
+        math_btn.setOnClickListener(this);
+
 
     }
 
@@ -24,6 +29,10 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
         if(view == letters_btn){
             Intent intent_letters=new Intent(PlaySelect.this,Letters.class);
             startActivity(intent_letters);
+        }
+        else if(view == math_btn){
+            Intent intent_math= new Intent(PlaySelect.this,Math.class);
+            startActivity(intent_math);
         }
     }
 }

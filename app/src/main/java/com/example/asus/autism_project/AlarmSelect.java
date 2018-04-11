@@ -15,7 +15,6 @@ public class AlarmSelect extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_alarm_select);
         breakfastBttn = (Button)findViewById(R.id.breakfast);
         breakfastBttn.setOnClickListener(this);
-
     }
 
 
