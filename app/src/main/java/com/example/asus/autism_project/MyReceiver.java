@@ -14,5 +14,9 @@ public class MyReceiver extends BroadcastReceiver {
         //throw new UnsupportedOperationException("Not yet implemented");
         String state = intent.getExtras().getString("extra");
         Log.e("Alarm_Receiver","we r in receiver and get from Breakfast: "+state);
+
+        Intent service_intent= new Intent(context,RingtonePlayingService.class);
+
+        context.startService(service_intent);
     }
 }

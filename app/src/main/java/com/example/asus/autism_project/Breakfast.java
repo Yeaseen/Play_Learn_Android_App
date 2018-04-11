@@ -16,7 +16,7 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
-public class Breakfast extends AppCompatActivity {
+public class Breakfast extends AppCompatActivity implements View.OnClickListener {
 
     public static AlarmManager alarmManager;
     public  TimePicker timePicker;
@@ -44,59 +44,46 @@ public class Breakfast extends AppCompatActivity {
         myIntent= new Intent(this.context,MyReceiver.class);
         calendar= Calendar.getInstance();
 
-        setOnClickAlarmOnListener();
-        setOnClickAlarmOffListener();
-    }
-
-    public void setOnClickAlarmOnListener(){
         alarmOn = (Button)findViewById(R.id.turnOn);
-
-        alarmOn.setOnClickListener(
-                new View.OnClickListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.M)
-                    @Override
-                    public void onClick(View view) {
-
-                        calendar.add(Calendar.SECOND, 3);
-                        calendar.set(Calendar.HOUR_OF_DAY,timePicker.getCurrentHour());
-                        calendar.set(calendar.MINUTE,timePicker.getCurrentMinute());
-
-                        int hour = timePicker.getCurrentHour();
-                        int min = timePicker.getCurrentMinute();
-                        String h=String.valueOf(hour);
-                        String m=String.valueOf(min);
-                        set_alarm_text("Alarm set to: "+h+":"+m );
-                        myIntent.putExtra("extra", "yes");
-                        pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-                        Log.e("Context","after pending");
-                        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+500, pendingIntent);
-                        Log.e("Context","after alrmamngr");
-
-                    }
-                }
-        );
-
-    }
-
-    public void setOnClickAlarmOffListener(){
         alarmoff = (Button)findViewById(R.id.turnOff);
 
-        alarmoff.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        myIntent.putExtra("extra","nope");
-                        sendBroadcast(myIntent);
-                        alarmManager.cancel(pendingIntent);
-                        set_alarm_text("Alarm canceled");
-                    }
-                }
-        );
+        alarmOn.setOnClickListener(this);
+        alarmoff.setOnClickListener(this);
+
+
     }
+
 
     public void set_alarm_text(String output){
 
         updateText.setText(output);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == alarmOn){
+            calendar.add(Calendar.SECOND, 3);
+            calendar.set(Calendar.HOUR_OF_DAY,timePicker.getCurrentHour());
+            calendar.set(calendar.MINUTE,timePicker.getCurrentMinute());
+
+            int hour = timePicker.getCurrentHour();
+            int min = timePicker.getCurrentMinute();
+            String h=String.valueOf(hour);
+            String m=String.valueOf(min);
+            set_alarm_text("Alarm set to: "+h+":"+m );
+            myIntent.putExtra("extra", "yes");
+            pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+            Log.e("Context","after pending");
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+500, pendingIntent);
+            Log.e("Context","after alrmamngr");
+        }
+
+        else if (view == alarmoff){
+            myIntent.putExtra("extra","nope");
+            sendBroadcast(myIntent);
+            alarmManager.cancel(pendingIntent);
+            set_alarm_text("Alarm canceled");
+        }
     }
 }

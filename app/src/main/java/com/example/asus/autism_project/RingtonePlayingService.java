@@ -2,12 +2,14 @@ package com.example.asus.autism_project;
 
 import android.app.Service;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
 public class RingtonePlayingService extends Service {
+    public MediaPlayer media_song;
 
     @Nullable
     @Override
@@ -24,6 +26,9 @@ public class RingtonePlayingService extends Service {
     {
 
         Log.e("RingtoneService","at the ringtoneservice");
+        media_song= MediaPlayer.create(this,R.raw.dove);
+        media_song.start();
+        Log.e("after playing","404 not heard");
 
 
         return START_NOT_STICKY;
@@ -32,7 +37,7 @@ public class RingtonePlayingService extends Service {
 
     @Override
     public void onDestroy() {
-        //super.onDestroy();
+        super.onDestroy();
         Toast.makeText(this,"On Destroy Called",Toast.LENGTH_SHORT).show();
     }
 

@@ -6,30 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PlaySelect extends AppCompatActivity {
+public class PlaySelect extends AppCompatActivity implements View.OnClickListener {
     private  Button letters_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_select);
-        onClickLettersListener();
-    }
-
-    public void onClickLettersListener(){
         letters_btn = (Button)findViewById(R.id.button3);
+        letters_btn.setOnClickListener(this);
 
-        letters_btn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent_letters=new Intent(PlaySelect.this,Letters.class);
-                        startActivity(intent_letters);
-                    }
-                }
-        );
     }
 
 
-
+    @Override
+    public void onClick(View view) {
+        if(view == letters_btn){
+            Intent intent_letters=new Intent(PlaySelect.this,Letters.class);
+            startActivity(intent_letters);
+        }
+    }
 }

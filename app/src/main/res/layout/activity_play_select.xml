@@ -15,7 +15,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="120dp"
-        android:onClick="onClickLettersListener"
+        android:onClick="onClick"
         android:text="@string/letters"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"

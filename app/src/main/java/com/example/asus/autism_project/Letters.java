@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Letters extends AppCompatActivity {
+public class Letters extends AppCompatActivity implements View.OnClickListener {
     public  ImageButton banana_btn;
     public  ImageButton cat_btn;
     public  ImageButton elephant_btn;
@@ -16,47 +16,23 @@ public class Letters extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_letters);
-        onClickbananaBtnListener();
-        onClickcatBtnListener();
-        onClickelephantBtnListener();
-    }
-
-    public void onClickbananaBtnListener(){
         banana_btn = (ImageButton)findViewById(R.id.bananaBttn);
-        banana_btn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-    }
-
-    public void onClickcatBtnListener(){
         cat_btn = (ImageButton)findViewById(R.id.catBttn);
-        cat_btn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-    }
-
-    public void onClickelephantBtnListener(){
         elephant_btn =  (ImageButton)findViewById(R.id.elephantBttn);
-        elephant_btn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
+        banana_btn.setOnClickListener(this);
+        cat_btn.setOnClickListener(this);
+        elephant_btn.setOnClickListener(this);
+
     }
 
 
 
+    @Override
+    public void onClick(View view) {
+
+        if(view == banana_btn)  Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == cat_btn) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == elephant_btn) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+
+    }
 }
