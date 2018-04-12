@@ -37,7 +37,9 @@ public class RingtonePlayingService extends Service {
 
     @Override
     public void onDestroy() {
+        Log.e("on Destry","yeep");
         super.onDestroy();
+        Log.e("on Destry","yeep");
         Toast.makeText(this,"On Destroy Called",Toast.LENGTH_SHORT).show();
     }
 

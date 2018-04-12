@@ -9,6 +9,8 @@ import android.widget.Button;
 public class PlaySelect extends AppCompatActivity implements View.OnClickListener {
     private  Button letters_btn;
     private Button math_btn;
+    private Button nmbr_btn;
+    private Button pic_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,11 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
         math_btn = (Button)findViewById(R.id.mathBttn);
         math_btn.setOnClickListener(this);
 
+        nmbr_btn = (Button)findViewById(R.id.numBttn);
+        nmbr_btn.setOnClickListener(this);
 
+        pic_btn = (Button)findViewById(R.id.picBttn);
+        pic_btn.setOnClickListener(this);
     }
 
 
@@ -33,6 +39,14 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
         else if(view == math_btn){
             Intent intent_math= new Intent(PlaySelect.this,Math.class);
             startActivity(intent_math);
+        }
+        else if (view == nmbr_btn){
+            Intent intent_nmbr = new Intent(PlaySelect.this,Numbers.class);
+            startActivity(intent_nmbr);
+        }
+        else if (view == pic_btn){
+            Intent intent_pic = new Intent(PlaySelect.this,PicturePuzzle.class);
+            startActivity(intent_pic);
         }
     }
 }

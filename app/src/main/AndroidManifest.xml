@@ -50,6 +50,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".Numbers">
+            <intent-filter>
+                <action android:name="com.example.asus.autism_project.Numbers" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PicturePuzzle">
+            <intent-filter>
+                <action android:name="com.example.asus.autism_project.PicturePuzzle" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
