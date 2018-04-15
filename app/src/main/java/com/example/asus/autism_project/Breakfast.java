@@ -1,5 +1,6 @@
 package com.example.asus.autism_project;
 
+import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -60,6 +61,7 @@ public class Breakfast extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onClick(View view) {
         if(view == alarmOn){
@@ -73,9 +75,9 @@ public class Breakfast extends AppCompatActivity implements View.OnClickListener
             String m=String.valueOf(min);
             set_alarm_text("Alarm set to: "+h+":"+m );
             myIntent.putExtra("extra", "yes");
-            pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+            pendingIntent= PendingIntent.getBroadcast(context,0,myIntent,pendingIntent.FLAG_UPDATE_CURRENT);
             Log.e("Context","after pending");
-            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+500, pendingIntent);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
             Log.e("Context","after alrmamngr");
         }
 
