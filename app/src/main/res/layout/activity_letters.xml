@@ -23,6 +23,7 @@
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="45dp"
         android:layout_marginStart="35dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/catBttn"
         app:layout_constraintEnd_toStartOf="@+id/bananaBttn"
         app:layout_constraintStart_toStartOf="parent"

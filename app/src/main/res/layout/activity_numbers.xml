@@ -24,37 +24,41 @@
         android:layout_marginBottom="99dp"
         android:layout_marginLeft="62dp"
         android:layout_marginStart="62dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/carView"
         app:layout_constraintTop_toBottomOf="@+id/carView"
         app:srcCompat="@drawable/rsz_copt3" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/opt6Bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:onClick="onClick"
         app:layout_constraintStart_toStartOf="@+id/opt3Bttn"
         app:layout_constraintTop_toBottomOf="@+id/opt3Bttn"
         app:srcCompat="@drawable/rsz_copt6" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/opt5Bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        android:onClick="onClick"
+        app:layout_constraintStart_toStartOf="@+id/opt8Bttn"
         app:layout_constraintTop_toBottomOf="@+id/carView"
         app:srcCompat="@drawable/rsz_copt5" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/opt8Bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="59dp"
         android:layout_marginRight="59dp"
         android:layout_marginTop="18dp"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/opt5Bttn"
         app:srcCompat="@drawable/rsz_copt8" />
 </android.support.constraint.ConstraintLayout>

@@ -43,6 +43,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/opt2" />
@@ -54,6 +55,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/opt3Bttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/opt5" />
@@ -65,6 +67,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/opt3" />
@@ -74,6 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/opt2Bttn"
         app:layout_constraintStart_toStartOf="@+id/opt2Bttn"
         app:srcCompat="@drawable/opt1" />

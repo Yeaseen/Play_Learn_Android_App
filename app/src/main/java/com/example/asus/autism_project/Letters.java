@@ -14,6 +14,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
     public  ImageButton banana_btn;
     public  ImageButton cat_btn;
     public  ImageButton elephant_btn;
+    public ImageButton apple_btn;
     public ImageView letters;
 
     @Override
@@ -36,6 +37,8 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         banana_btn = (ImageButton)findViewById(R.id.bananaBttn);
         cat_btn = (ImageButton)findViewById(R.id.catBttn);
         elephant_btn =  (ImageButton)findViewById(R.id.elephantBttn);
+        apple_btn=findViewById(R.id.appleBttn);
+        apple_btn.setOnClickListener(this);
         banana_btn.setOnClickListener(this);
         cat_btn.setOnClickListener(this);
         elephant_btn.setOnClickListener(this);
@@ -50,6 +53,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         if(view == banana_btn)  Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == cat_btn) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == elephant_btn) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == apple_btn ) Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
 
     }
 }
