@@ -27,6 +27,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_math);
 
         math =(ImageView)findViewById(R.id.mathImageView);
+        math.setImageResource(R.drawable.letter1back);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
