@@ -20,6 +20,8 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mydb=new DataBaseHelper(this);
+
+        mydb.insertData("1","1");
         setContentView(R.layout.activity_play_select);
         letters_btn = (Button)findViewById(R.id.button3);
         letters_btn.setOnClickListener(this);

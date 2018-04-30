@@ -21,7 +21,7 @@
 
     <ImageButton
         android:id="@+id/appleBttn"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="45dp"
@@ -33,7 +33,7 @@
 
     <ImageButton
         android:id="@+id/bananaBttn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="226dp"
         android:layout_marginEnd="16dp"
@@ -71,7 +71,6 @@
         android:layout_marginEnd="35dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="30dp"
-        android:text="A stands for ......"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bananaBttn"

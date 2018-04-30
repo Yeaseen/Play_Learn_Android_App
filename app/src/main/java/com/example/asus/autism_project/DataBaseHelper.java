@@ -1,5 +1,7 @@
 package com.example.asus.autism_project;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -12,7 +14,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_3 = "ANSWER";
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db=this.getWritableDatabase();
     }
 
     @Override
@@ -26,6 +27,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
+
+    public void insertData(String LEVEL,String ANSWER) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2,LEVEL);
+        contentValues.put(COL_3,ANSWER);
+        long result = db.insert(TABLE_NAME,null ,contentValues);
+    }
+
+    public Cursor getData(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME+" WHERE ID = "+id,null);
+        return res;
+    }
+
+
 
 
 
