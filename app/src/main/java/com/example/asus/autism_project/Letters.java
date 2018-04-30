@@ -1,5 +1,6 @@
 package com.example.asus.autism_project;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
@@ -22,12 +23,9 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
     int[] button4Array={R.drawable.cat,R.drawable.rsz_doll};
 
     ImageButton[] imgButton=new ImageButton[4];
-    public  ImageButton button1;
-    public  ImageButton button2;
-    public  ImageButton button3;
-    public ImageButton button4;
     public ImageView background;
-    public int ans;
+    public int lvl=0;
+    public int ans=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         background.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
         background.setAdjustViewBounds(false);
         background.setScaleType(ImageView.ScaleType.FIT_XY);
-        background.setImageResource(backgroundArray[0]);
+        background.setImageResource(backgroundArray[lvl]);
 
         imgButton[0] =findViewById(R.id.appleBttn);
         imgButton[1] =findViewById(R.id.bananaBttn);
@@ -51,13 +49,13 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
 
 
-        imgButton[0].setBackgroundResource(button1Array[0]);
+        imgButton[0].setBackgroundResource(button1Array[lvl]);
         imgButton[0].setOnClickListener(this);
-        imgButton[1].setImageResource(button2Array[0]);
+        imgButton[1].setImageResource(button2Array[lvl]);
         imgButton[1].setOnClickListener(this);
-        imgButton[2].setImageResource(button3Array[0]);
+        imgButton[2].setImageResource(button3Array[lvl]);
         imgButton[2].setOnClickListener(this);
-        imgButton[3].setImageResource(button4Array[0]);
+        imgButton[3].setImageResource(button4Array[lvl]);
         imgButton[3].setOnClickListener(this);
 
 
@@ -68,12 +66,15 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+        //there should be a for loop then update database for correct ans from dataabse and redirect the intent
+
         if(view == imgButton[0]) Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1]) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2]) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] ) {
             Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
-
+//            Intent intn=new Intent(Letters.this,Letters.class);
+//            startActivity(intn);
         }
 
     }

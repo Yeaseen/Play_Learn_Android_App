@@ -11,10 +11,15 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
     private Button math_btn;
     private Button nmbr_btn;
     private Button pic_btn;
+    DataBaseHelper mydb;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mydb=new DataBaseHelper(this);
         setContentView(R.layout.activity_play_select);
         letters_btn = (Button)findViewById(R.id.button3);
         letters_btn.setOnClickListener(this);
