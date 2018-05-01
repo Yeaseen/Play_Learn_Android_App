@@ -1,9 +1,6 @@
 package com.example.asus.autism_project;
 
-import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,8 +11,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import static com.example.asus.autism_project.R.drawable.rsz_math;
 
 public class Letters extends AppCompatActivity implements View.OnClickListener {
 
@@ -60,7 +55,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         imgButton[0] =findViewById(R.id.appleBttn);
         imgButton[1] =findViewById(R.id.bananaBttn);
         imgButton[2] =findViewById(R.id.catBttn);
-        imgButton[3] =findViewById(R.id.elephantBttn);
+        imgButton[3] =findViewById(R.id.opt2);
 
         imgButton[0].setBackgroundResource(button1Array[lvl]);
         imgButton[0].setOnClickListener(this);
