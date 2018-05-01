@@ -27,7 +27,6 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginTop="52dp"
-        android:text="1 + 2  ="
         android:textAllCaps="false"
         android:textColor="?attr/colorError"
         android:textSize="80sp"
@@ -37,49 +36,47 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt2Bttn"
+        android:id="@+id/opt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/opt1"
+        android:layout_width="wrap_content"
+        android:layout_height="137dp"
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/opt2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt5Bttn"
-        android:layout_width="wrap_content"
-        android:layout_height="137dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/opt3Bttn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/opt5" />
-
-    <ImageButton
-        android:id="@+id/opt3Bttn"
+        android:id="@+id/opt4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/opt3" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt1Bttn"
+        android:id="@+id/opt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
         android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/opt2Bttn"
-        app:layout_constraintStart_toStartOf="@+id/opt2Bttn"
-        app:srcCompat="@drawable/opt1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </android.support.constraint.ConstraintLayout>

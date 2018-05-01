@@ -10,15 +10,14 @@
     <ImageView
         android:id="@+id/carView"
         android:layout_width="385dp"
-        android:layout_height="0dp"
+        android:layout_height="335dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/opt3Bttn"
+        app:layout_constraintBottom_toTopOf="@+id/opt1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rsz_cars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt3Bttn"
+        android:id="@+id/opt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="99dp"
@@ -27,31 +26,28 @@
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/carView"
-        app:layout_constraintTop_toBottomOf="@+id/carView"
-        app:srcCompat="@drawable/rsz_copt3" />
+        app:layout_constraintTop_toBottomOf="@+id/carView" />
 
     <ImageButton
-        android:id="@+id/opt6Bttn"
+        android:id="@+id/opt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:onClick="onClick"
-        app:layout_constraintStart_toStartOf="@+id/opt3Bttn"
-        app:layout_constraintTop_toBottomOf="@+id/opt3Bttn"
-        app:srcCompat="@drawable/rsz_copt6" />
+        app:layout_constraintStart_toStartOf="@+id/opt1"
+        app:layout_constraintTop_toBottomOf="@+id/opt1" />
 
     <ImageButton
-        android:id="@+id/opt5Bttn"
+        android:id="@+id/opt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="onClick"
-        app:layout_constraintStart_toStartOf="@+id/opt8Bttn"
-        app:layout_constraintTop_toBottomOf="@+id/carView"
-        app:srcCompat="@drawable/rsz_copt5" />
+        app:layout_constraintStart_toStartOf="@+id/opt1"
+        app:layout_constraintTop_toBottomOf="@+id/carView" />
 
     <ImageButton
-        android:id="@+id/opt8Bttn"
+        android:id="@+id/opt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="59dp"
@@ -59,6 +55,5 @@
         android:layout_marginTop="18dp"
         android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt5Bttn"
-        app:srcCompat="@drawable/rsz_copt8" />
+        app:layout_constraintTop_toBottomOf="@+id/opt1" />
 </android.support.constraint.ConstraintLayout>

@@ -79,7 +79,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         while (r.moveToNext()) {
             ant=r.getString(0);
         }
-//            String ant=String.valueOf(3);
+
         String idS = String.valueOf(id);
         mydb.updateData(idS,level,ant);
     }
