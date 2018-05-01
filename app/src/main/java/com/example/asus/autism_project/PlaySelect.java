@@ -24,10 +24,33 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
         Cursor res = mydb.getAllData();
 
         if(res.getCount()==0){
-            mydb.insertData("1","1");
-        mydb.insertData("1","3");
-        mydb.insertData("1","4");
-        mydb.insertData("1","4");
+
+            mydb.insertData("1","1","1");
+            mydb.insertData("1","2","3");
+            mydb.insertData("1","3","4");
+            mydb.insertData("1","4","3");
+
+
+            mydb.insertData("2","1","2");
+            mydb.insertData("2","2","1");
+            mydb.insertData("2","3","3");
+            mydb.insertData("2","4","1");
+
+            mydb.insertData("3","1","1");
+            mydb.insertData("3","2","3");
+            mydb.insertData("3","3","4");
+            mydb.insertData("3","4","2");
+
+            mydb.insertData("4","1","1");
+            mydb.insertData("4","2","2");
+            mydb.insertData("4","3","1");
+            mydb.insertData("4","4","1");
+
+            mydb.insertData("10","1","1");
+            mydb.insertData("20","1","2");
+            mydb.insertData("30","1","1");
+            mydb.insertData("40","1","1");
+
         }
 
 

@@ -72,23 +72,31 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         imgButton[3].setOnClickListener(this);
     }
 
+    public void updateLevel(){
+        String level= String.valueOf((lvl+2));
+        Cursor r= mydb.getAns(1,(lvl+2)); ///*///
+        String ant = null;
+        while (r.moveToNext()) {
+            ant=r.getString(0);
+        }
+//            String ant=String.valueOf(3);
+        String idS = String.valueOf(id);
+        mydb.updateData(idS,level,ant);
+    }
     public void updateLevelAns(){
-        Cursor res= mydb.getData(27);
+        Cursor res= mydb.getData(10);   ////*///
         if(res.getCount()==0) Log.v("chole na","ki r kora");
         else Log.v("chole na","kene cholor");
-        //Log.v("chole",res.getString(0));
-        //lvl=Integer.parseInt(res.getString(0))-1;
         while (res.moveToNext()) {
             String i=res.getString(0);
+            id=Integer.parseInt(i);
             String m= res.getString(1);
             Log.v("asi",m);
             lvl=Integer.parseInt(m)-1;
             String k=res.getString(2);
             ans=Integer.parseInt(k)-1;
         }
-        // String j=res.getString(0);
         Log.v("getString(0)","kjk");
-        //lvl=0;
 
     }
 
@@ -103,10 +111,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            String level= String.valueOf((lvl+2));
-            String ant=String.valueOf(3);
-            String id=String.valueOf(27);
-            mydb.updateData(id,level,ant);
+            updateLevel();
             updateLevelAns();
             updateFeatures(lvl);
 
