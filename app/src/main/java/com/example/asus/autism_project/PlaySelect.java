@@ -1,6 +1,7 @@
 package com.example.asus.autism_project;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
     private Button math_btn;
     private Button nmbr_btn;
     private Button pic_btn;
-    DataBaseHelper mydb;
+    public static DataBaseHelper mydb;
 
 
 
@@ -20,8 +21,16 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mydb=new DataBaseHelper(this);
+        Cursor res = mydb.getAllData();
 
-        mydb.insertData("1","1");
+        if(res.getCount()==0){
+            mydb.insertData("1","1");
+        mydb.insertData("1","3");
+        mydb.insertData("1","4");
+        mydb.insertData("1","4");
+        }
+
+
         setContentView(R.layout.activity_play_select);
         letters_btn = (Button)findViewById(R.id.button3);
         letters_btn.setOnClickListener(this);

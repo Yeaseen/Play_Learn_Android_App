@@ -30,7 +30,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
     public ImageView background;
     public TextView txt;
     public int lvl;
-
+    public int id;
     public int ans;
 
     DataBaseHelper mydb;
@@ -42,7 +42,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         mydb= new DataBaseHelper(this);
 
-        Cursor res= mydb.getData(1);
+        Cursor res= mydb.getData(27);
         if(res.getCount()==0) Log.v("chole na","ki r kora");
         else Log.v("chole na","kene cholor");
         //Log.v("chole",res.getString(0));
@@ -53,12 +53,14 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
             Log.v("asi",m);
             lvl=Integer.parseInt(m)-1;
             String k=res.getString(2);
-            ans=Integer.parseInt(k);
+            ans=Integer.parseInt(k)-1;
         }
        // String j=res.getString(0);
         Log.v("getString(0)","kjk");
         //lvl=0;
-
+        updateFeatures(lvl);
+    }
+    public void updateFeatures(int lvl){
         txt=findViewById(R.id.textView);
         txt.setText(txtArray[lvl]);
         background = (ImageView)findViewById(R.id.letters);
@@ -85,9 +87,9 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         imgButton[2].setOnClickListener(this);
         imgButton[3].setImageResource(button4Array[lvl]);
         imgButton[3].setOnClickListener(this);
-
-
     }
+
+
 
 
 
@@ -96,12 +98,45 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         //there should be a for loop then update database for correct ans from dataabse and redirect the intent
 
-        if(view == imgButton[0]) Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-        else if(view == imgButton[1]) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
-        else if(view == imgButton[2]) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
-        else if(view == imgButton[3] ) {
-            Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        if(view == imgButton[0] && ans==0) {
+            Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            String level= String.valueOf((lvl+1));
+            String ant=String.valueOf(3);
+            String id=String.valueOf(1);
+            mydb.updateData(id,level,ant);
+
+            Cursor res= mydb.getData(1);
+            if(res.getCount()==0) Log.v("chole na","ki r kora");
+            else Log.v("chole na","kene cholor");
+            //Log.v("chole",res.getString(0));
+            //lvl=Integer.parseInt(res.getString(0))-1;
+            while (res.moveToNext()) {
+                String i=res.getString(0);
+                String m= res.getString(1);
+                Log.v("asi",m);
+                 lvl=Integer.parseInt(m)-1;
+                String k=res.getString(2);
+                ans=Integer.parseInt(k)-1;
+            }
+            updateFeatures(lvl);
+
         }
+        else if(view == imgButton[0] && ans!=0) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[1] && ans==1) {
+            Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+        }
+        else if(view == imgButton[1] && ans!=1) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[2] && ans==2) {
+            Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+        }
+        else if(view == imgButton[2] && ans!=2) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[3] && ans==3) {
+            Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+        }
+        else if(view == imgButton[3] && ans!=3) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+
+
+
 
     }
 }

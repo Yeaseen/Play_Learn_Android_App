@@ -12,9 +12,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_1 = "ID";
     public static final String COL_2 = "LEVEL";
     public static final String COL_3 = "ANSWER";
+
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.delete(TABLE_NAME, null, null);
+
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -42,6 +47,27 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from "+TABLE_NAME+" WHERE ID = "+id,null);
         return res;
     }
+
+    public void updateData(String id,String LEVEL,String ANSWER) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1,id);
+        contentValues.put(COL_2,LEVEL);
+        contentValues.put(COL_3,ANSWER);
+
+        db.update(TABLE_NAME, contentValues, "ID = ?",new String[] { id });
+        //return true;
+    }
+
+    public Cursor getAllData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
+        return res;
+    }
+
+
+
 
 
 
