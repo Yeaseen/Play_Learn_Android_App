@@ -42,22 +42,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         mydb= new DataBaseHelper(this);
 
-        Cursor res= mydb.getData(27);
-        if(res.getCount()==0) Log.v("chole na","ki r kora");
-        else Log.v("chole na","kene cholor");
-        //Log.v("chole",res.getString(0));
-        //lvl=Integer.parseInt(res.getString(0))-1;
-        while (res.moveToNext()) {
-            String i=res.getString(0);
-            String m= res.getString(1);
-            Log.v("asi",m);
-            lvl=Integer.parseInt(m)-1;
-            String k=res.getString(2);
-            ans=Integer.parseInt(k)-1;
-        }
-       // String j=res.getString(0);
-        Log.v("getString(0)","kjk");
-        //lvl=0;
+        updateLevelAns();
         updateFeatures(lvl);
     }
     public void updateFeatures(int lvl){
@@ -77,8 +62,6 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         imgButton[2] =findViewById(R.id.catBttn);
         imgButton[3] =findViewById(R.id.elephantBttn);
 
-
-
         imgButton[0].setBackgroundResource(button1Array[lvl]);
         imgButton[0].setOnClickListener(this);
         imgButton[1].setImageResource(button2Array[lvl]);
@@ -87,6 +70,26 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         imgButton[2].setOnClickListener(this);
         imgButton[3].setImageResource(button4Array[lvl]);
         imgButton[3].setOnClickListener(this);
+    }
+
+    public void updateLevelAns(){
+        Cursor res= mydb.getData(27);
+        if(res.getCount()==0) Log.v("chole na","ki r kora");
+        else Log.v("chole na","kene cholor");
+        //Log.v("chole",res.getString(0));
+        //lvl=Integer.parseInt(res.getString(0))-1;
+        while (res.moveToNext()) {
+            String i=res.getString(0);
+            String m= res.getString(1);
+            Log.v("asi",m);
+            lvl=Integer.parseInt(m)-1;
+            String k=res.getString(2);
+            ans=Integer.parseInt(k)-1;
+        }
+        // String j=res.getString(0);
+        Log.v("getString(0)","kjk");
+        //lvl=0;
+
     }
 
 
@@ -100,24 +103,11 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            String level= String.valueOf((lvl+1));
+            String level= String.valueOf((lvl+2));
             String ant=String.valueOf(3);
-            String id=String.valueOf(1);
+            String id=String.valueOf(27);
             mydb.updateData(id,level,ant);
-
-            Cursor res= mydb.getData(1);
-            if(res.getCount()==0) Log.v("chole na","ki r kora");
-            else Log.v("chole na","kene cholor");
-            //Log.v("chole",res.getString(0));
-            //lvl=Integer.parseInt(res.getString(0))-1;
-            while (res.moveToNext()) {
-                String i=res.getString(0);
-                String m= res.getString(1);
-                Log.v("asi",m);
-                 lvl=Integer.parseInt(m)-1;
-                String k=res.getString(2);
-                ans=Integer.parseInt(k)-1;
-            }
+            updateLevelAns();
             updateFeatures(lvl);
 
         }
