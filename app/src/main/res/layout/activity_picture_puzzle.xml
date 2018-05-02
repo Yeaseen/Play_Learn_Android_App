@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt1"
+        android:id="@+id/opt4"
         android:layout_width="203dp"
         android:layout_height="0dp"
         android:layout_marginBottom="29dp"
@@ -44,7 +44,7 @@
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/opt1"
+        app:layout_constraintStart_toEndOf="@+id/opt4"
         app:layout_constraintTop_toBottomOf="@+id/ques" />
 
 </android.support.constraint.ConstraintLayout>

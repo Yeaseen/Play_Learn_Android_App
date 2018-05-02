@@ -1,7 +1,6 @@
 package com.example.asus.autism_project;
 
 import android.database.Cursor;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,10 +14,10 @@ import android.widget.Toast;
 public class PicturePuzzle extends AppCompatActivity implements View.OnClickListener {
 
     public ImageView pic_puzzl;
-    int[] backgroundArray={R.drawable.picpuzzle,R.drawable.picpuzzle2};
-    int[] quesView ={R.drawable.rsz_2ppuz_horse_shadow,R.drawable.rsz_pques2};
-    int[] button1Array={R.drawable.rsz_puzzlehorse,R.drawable.rsz_pz2opt};
-    int[] button2Array={R.drawable.rsz_puzzleelphant,R.drawable.rsz_opt1pz2};
+    int[] backgroundArray={R.drawable.picpuzzle,R.drawable.picpuzzle2,R.drawable.picpuzzle2,R.drawable.picpuzzle};
+    int[] quesView ={R.drawable.rsz_2ppuz_horse_shadow,R.drawable.rsz_pques2,R.drawable.rsz_ques3,R.drawable.rsz_queselephant};
+    int[] button1Array={R.drawable.rsz_puzzlehorse,R.drawable.rsz_pz2opt,R.drawable.rsz_q3ans1,R.drawable.rsz_puzzleelphant};
+    int[] button2Array={R.drawable.rsz_puzzleelphant,R.drawable.rsz_opt1pz2,R.drawable.rsz_q3ans2,R.drawable.rsz_puzzlehorse};
 
 
     ImageButton[] imgButton=new ImageButton[2];
@@ -55,7 +54,7 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
         background.setAdjustViewBounds(false);
         background.setScaleType(ImageView.ScaleType.FIT_XY);
         background.setImageResource(backgroundArray[lvl]);
-        imgButton[0] =findViewById(R.id.opt1);
+        imgButton[0] =findViewById(R.id.opt4);
         imgButton[1] =findViewById(R.id.opt2);
 
 
@@ -100,18 +99,23 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(PicturePuzzle.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            updateLevel();
-            updateLevelAns();
-            updateFeatures(lvl);
+            if(lvl<3){
+                updateLevel();
+                updateLevelAns();
+                updateFeatures(lvl);
+
+            }
 
         }
         else if(view == imgButton[0] && ans!=0) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(PicturePuzzle.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            if(lvl<3){
+                updateLevel();
+                updateLevelAns();
+                updateFeatures(lvl);
 
-            updateLevel();
-            updateLevelAns();
-            updateFeatures(lvl);
+            }
 
         }
         else if(view == imgButton[1] && ans!=1) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();    }

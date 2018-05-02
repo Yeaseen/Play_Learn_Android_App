@@ -11,49 +11,44 @@
         android:id="@+id/carView"
         android:layout_width="385dp"
         android:layout_height="335dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/opt1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt1"
+        android:id="@+id/butt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="99dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginStart="62dp"
-        android:onClick="onClick"
+        android:layout_marginBottom="59dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/carView"
-        app:layout_constraintTop_toBottomOf="@+id/carView" />
+        app:layout_constraintEnd_toEndOf="@+id/butto_3"
+        app:layout_constraintStart_toStartOf="@+id/butto_3" />
 
     <ImageButton
-        android:id="@+id/opt1"
+        android:id="@+id/bttoN_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:onClick="onClick"
-        app:layout_constraintStart_toStartOf="@+id/opt1"
-        app:layout_constraintTop_toBottomOf="@+id/opt1" />
+        android:layout_marginBottom="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/butn_4"
+        app:layout_constraintStart_toStartOf="@+id/butn_4" />
 
     <ImageButton
-        android:id="@+id/opt1"
+        android:id="@+id/butto_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="onClick"
-        app:layout_constraintStart_toStartOf="@+id/opt1"
-        app:layout_constraintTop_toBottomOf="@+id/carView" />
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/opt1"
+        android:id="@+id/butn_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="59dp"
-        android:layout_marginRight="59dp"
-        android:layout_marginTop="18dp"
-        android:onClick="onClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt1" />
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

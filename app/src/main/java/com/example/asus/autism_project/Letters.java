@@ -14,12 +14,12 @@ import android.widget.Toast;
 
 public class Letters extends AppCompatActivity implements View.OnClickListener {
 
-    int[] backgroundArray={R.drawable.letter1back,R.drawable.rsz_letter_2back};
-    int[] button1Array={R.drawable.apple,R.drawable.rsz_horse};
-    int[] button2Array={R.drawable.banana,R.drawable.rsz_fish};
-    int[] button3Array={R.drawable.elephant,R.drawable.rsz_ball};
-    int[] button4Array={R.drawable.cat,R.drawable.rsz_doll};
-    String[] txtArray={"A stands for....","B stands for......"};
+    int[] backgroundArray={R.drawable.letter1back,R.drawable.rsz_letter_2back,R.drawable.letter1back,R.drawable.rsz_letter_2back};
+    int[] button1Array={R.drawable.apple,R.drawable.rsz_horse,R.drawable.elephant,R.drawable.cat};
+    int[] button2Array={R.drawable.banana,R.drawable.rsz_fish,R.drawable.apple,R.drawable.rsz_horse};
+    int[] button3Array={R.drawable.elephant,R.drawable.rsz_ball,R.drawable.rsz_fish,R.drawable.rsz_doll};
+    int[] button4Array={R.drawable.cat,R.drawable.rsz_doll,R.drawable.cat,R.drawable.banana};
+    String[] txtArray={"A stands for....","B stands for......","C stands for.....","D stands for...."};
 
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
@@ -59,11 +59,11 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         imgButton[0].setBackgroundResource(button1Array[lvl]);
         imgButton[0].setOnClickListener(this);
-        imgButton[1].setImageResource(button2Array[lvl]);
+        imgButton[1].setBackgroundResource(button2Array[lvl]);
         imgButton[1].setOnClickListener(this);
-        imgButton[2].setImageResource(button3Array[lvl]);
+        imgButton[2].setBackgroundResource(button3Array[lvl]);
         imgButton[2].setOnClickListener(this);
-        imgButton[3].setImageResource(button4Array[lvl]);
+        imgButton[3].setBackgroundResource(button4Array[lvl]);
         imgButton[3].setOnClickListener(this);
     }
 
@@ -106,22 +106,42 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            updateLevel();
-            updateLevelAns();
-            updateFeatures(lvl);
+            if(lvl<3){
+                updateLevel();
+                updateLevelAns();
+                updateFeatures(lvl);
 
+            }
         }
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            if(lvl<3){
+                updateLevel();
+                updateLevelAns();
+                updateFeatures(lvl);
+
+            }
         }
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            if(lvl<3){
+                updateLevel();
+                updateLevelAns();
+                updateFeatures(lvl);
+
+            }
         }
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            if(lvl<3){
+                updateLevel();
+                updateLevelAns();
+                updateFeatures(lvl);
+
+            }
         }
         else if(view == imgButton[3] && ans!=3) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
 
