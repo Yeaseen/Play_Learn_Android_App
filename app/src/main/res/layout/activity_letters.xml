@@ -66,7 +66,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="95dp"
         android:layout_marginBottom="59dp"
         android:layout_marginEnd="35dp"
         android:layout_marginStart="35dp"
@@ -77,5 +77,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="onClick"
+        android:text="Go to"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/letters" />
 
 </android.support.constraint.ConstraintLayout>

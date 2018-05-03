@@ -7,15 +7,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "PlayS.db";
-    public static final String TABLE_NAME = "play_table";
+    public static final String DATABASE_NAME = "Structure.db";
+    public static final String TABLE_NAME = "structure_table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "LEVEL";
     public static final String COL_3 = "ANSWER";
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        //SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 //        db.delete(TABLE_NAME, null, null);
 
     }

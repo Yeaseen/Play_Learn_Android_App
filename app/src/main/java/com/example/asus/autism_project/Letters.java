@@ -1,18 +1,24 @@
 package com.example.asus.autism_project;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
 import android.database.Cursor;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Letters extends AppCompatActivity implements View.OnClickListener {
+public class Letters extends FragmentActivity implements View.OnClickListener {
 
     int[] backgroundArray={R.drawable.letter1back,R.drawable.rsz_letter_2back,R.drawable.letter1back,R.drawable.rsz_letter_2back};
     int[] button1Array={R.drawable.apple,R.drawable.rsz_horse,R.drawable.elephant,R.drawable.cat};
@@ -21,6 +27,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
     int[] button4Array={R.drawable.cat,R.drawable.rsz_doll,R.drawable.cat,R.drawable.banana};
     String[] txtArray={"A stands for....","B stands for......","C stands for.....","D stands for...."};
 
+    Button goLevel;
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
     public TextView txt;
@@ -36,6 +43,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_letters);
 
         mydb= new DataBaseHelper(this);
+        goLevel=findViewById(R.id.goTo);
 
         updateLevelAns();
         updateFeatures(lvl);
@@ -78,6 +86,7 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
         String idS = String.valueOf(id);
         mydb.updateData(idS,level,ant);
     }
+
     public void updateLevelAns(){
         Cursor res= mydb.getData(10);   ////*///
         if(res.getCount()==0) Log.v("chole na","ki r kora");
@@ -144,7 +153,18 @@ public class Letters extends AppCompatActivity implements View.OnClickListener {
             }
         }
         else if(view == imgButton[3] && ans!=3) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == goLevel){
+            String[] arr;
+            arr =new String[lvl+1];
+            for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + i;
 
+            DialogFragment newFragment= LevelChoice.newInstance(arr,1);
+            newFragment.show(getFragmentManager(),"dialog");
+            //updateLevelAns();
+            //updateFeatures(lvl);
+            Log.v("context","chole nai ");
+
+        }
 
 
 
