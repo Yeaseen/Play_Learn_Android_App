@@ -166,12 +166,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
             for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + String.valueOf(i+1);
 
             CharSequence[] items=arr;
-//            DialogFragment newFragment= LevelChoice.newInstance(arr,1);
-//            newFragment.show(getFragmentManager(),"dialog");
-//            updateLevelAns();
-//            updateFeatures(lvl);
-           // Log.v("context","chole nai ");
-
+            final int[] select = new int[1];
             new AlertDialog.Builder(Letters.this)
            // new SweetAlertDialog
                     .setTitle("Choose Level")
@@ -179,6 +174,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             lvl=i;
+
                         }
                     })
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -203,7 +199,8 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
+                            updateLevelAns();
+                            updateFeatures(lvl);
                         }
                     })
                     .show();

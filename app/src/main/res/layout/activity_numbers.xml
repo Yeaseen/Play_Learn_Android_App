@@ -9,46 +9,73 @@
 
     <ImageView
         android:id="@+id/carView"
-        android:layout_width="385dp"
-        android:layout_height="335dp"
+        android:layout_width="0dp"
+        android:layout_height="276dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/levvel" />
 
     <ImageButton
         android:id="@+id/butt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="59dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/butto_3"
-        app:layout_constraintStart_toStartOf="@+id/butto_3" />
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bttoN_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bttoN_2" />
 
     <ImageButton
         android:id="@+id/bttoN_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/butn_4"
-        app:layout_constraintStart_toStartOf="@+id/butn_4" />
+        android:layout_marginBottom="97dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginRight="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/butto_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="47dp"
-        android:layout_marginStart="47dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/butt_1"
+        app:layout_constraintStart_toStartOf="@+id/butt_1" />
 
     <ImageButton
         android:id="@+id/butn_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/bttoN_2"
+        app:layout_constraintStart_toStartOf="@+id/bttoN_2" />
+
+    <TextView
+        android:id="@+id/levvel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goTOO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:background="@layout/mybutton"
+        android:textColor="#ffffff"
+        android:padding="10dp"
+        android:text="go to"
+        app:layout_constraintEnd_toEndOf="@+id/carView"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

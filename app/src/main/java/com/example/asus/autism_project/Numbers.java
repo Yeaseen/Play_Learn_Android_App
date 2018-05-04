@@ -1,12 +1,16 @@
 package com.example.asus.autism_project;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Numbers extends AppCompatActivity implements View.OnClickListener {
@@ -24,6 +28,8 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
     public int lvl;
     public int id;
     public int ans;
+    public TextView txte;
+    public Button go_level_;
 
 
 
@@ -37,6 +43,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_numbers);
 
         mydb= new DataBaseHelper(this);
+        go_level_=findViewById(R.id.goTOO);
 
         updateLevelAns();
         updateFeatures(lvl);
@@ -44,6 +51,8 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
 
     public void updateFeatures(int lvl){
 
+        txte=findViewById(R.id.levvel);
+        txte.setText("Current Level: "+(lvl+1));
         background = (ImageView)findViewById(R.id.carView);
 
         background.setImageResource(backgroundArray[lvl]);
@@ -140,6 +149,51 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
         }
         else if(view == imgButton[3] && ans!=3) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
 
+        else if(view == go_level_){
+            String[] arr;
+            arr =new String[lvl+1];
+            for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + String.valueOf(i+1);
+
+            CharSequence[] items=arr;
+
+
+            new AlertDialog.Builder(Numbers.this)
+                    // new SweetAlertDialog
+                    .setTitle("Choose Level")
+                    .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            lvl=i;
+                        }
+                    })
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Log.v("ans",String.valueOf(i));
+                            Cursor r= mydb.getAns(2,(lvl+1));
+                            String ant = null;
+                            while (r.moveToNext()) {
+                                ant=r.getString(0);
+                            }
+
+                            String idS = String.valueOf(20);
+                            Log.v("ans",idS);
+                            mydb.updateData(idS,String.valueOf(lvl+1),ant);
+                            Log.v("levelchoice","chole nai ");
+                            updateLevelAns();
+                            updateFeatures(lvl);
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            updateLevelAns();
+                            updateFeatures(lvl);
+                        }
+                    })
+                    .show();
+        }
 
     }
 }

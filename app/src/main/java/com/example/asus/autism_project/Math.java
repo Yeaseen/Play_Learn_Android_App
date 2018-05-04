@@ -1,12 +1,15 @@
 package com.example.asus.autism_project;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,10 +27,11 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
-    public TextView txt;
+    public TextView txt,level_text;
     public int lvl;
     public int id;
     public int ans;
+    public Button go_level;
 
     DataBaseHelper mydb;
 
@@ -38,6 +42,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
 
 
         mydb= new DataBaseHelper(this);
+        go_level=findViewById(R.id.goTo);
 
         updateLevelAns();
         updateFeatures(lvl);
@@ -48,6 +53,8 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
     public void updateFeatures(int lvl){
         txt=findViewById(R.id.textView2);
         txt.setText(txtArray[lvl]);
+        level_text=findViewById(R.id.level);
+        level_text.setText("Current Level: "+(lvl+1));
         background = (ImageView)findViewById(R.id.mathImageView);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -152,6 +159,50 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         }
         else if(view == imgButton[3] && ans!=3) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
 
+        else if(view == go_level){
+            String[] arr;
+            arr =new String[lvl+1];
+            for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + String.valueOf(i+1);
+
+            CharSequence[] items=arr;
+
+            new AlertDialog.Builder(Math.this)
+                    // new SweetAlertDialog
+                    .setTitle("Choose Level")
+                    .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            lvl=i;
+                        }
+                    })
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Log.v("ans",String.valueOf(i));
+                            Cursor r= mydb.getAns(3,(lvl+1));
+                            String ant = null;
+                            while (r.moveToNext()) {
+                                ant=r.getString(0);
+                            }
+
+                            String idS = String.valueOf(30);
+                            Log.v("ans",idS);
+                            mydb.updateData(idS,String.valueOf(lvl+1),ant);
+                            Log.v("levelchoice","chole nai ");
+                            updateLevelAns();
+                            updateFeatures(lvl);
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            updateLevelAns();
+                            updateFeatures(lvl);
+                        }
+                    })
+                    .show();
+        }
 
     }
 }

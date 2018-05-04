@@ -1,14 +1,18 @@
 package com.example.asus.autism_project;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PicturePuzzle extends AppCompatActivity implements View.OnClickListener {
@@ -24,6 +28,8 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
     public ImageView background;
     public ImageView ques;
 
+    public TextView ttxt;
+    public Button goooLevel;
     public int lvl;
     public int id;
     public int ans;
@@ -36,12 +42,16 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_picture_puzzle);
 
         mydb= new DataBaseHelper(this);
+        goooLevel=findViewById(R.id.goesTo);
 
         updateLevelAns();
         updateFeatures(lvl);
     }
 
     public void updateFeatures(int lvl){
+
+        ttxt=findViewById(R.id.text__);
+        ttxt.setText("Current Level: "+(lvl+1));
 
         ques = findViewById(R.id.ques);
         ques.setImageResource(quesView[lvl]);
@@ -118,5 +128,53 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
             }
 
         }
-        else if(view == imgButton[1] && ans!=1) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();    }
+        else if(view == imgButton[1] && ans!=1) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+
+        else if(view == goooLevel){
+            String[] arr;
+            arr =new String[lvl+1];
+            for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + String.valueOf(i+1);
+
+            CharSequence[] items=arr;
+
+            final int[] select = new int[1];
+            new AlertDialog.Builder(PicturePuzzle.this)
+                    .setTitle("Choose Level")
+                    .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            lvl=i;
+
+                        }
+                    })
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Log.v("ans",String.valueOf(i));
+                            Cursor r= mydb.getAns(4,(lvl+1));
+                            String ant = null;
+                            while (r.moveToNext()) {
+                                ant=r.getString(0);
+                            }
+
+                            String idS = String.valueOf(40);
+                            Log.v("ans",idS);
+                            mydb.updateData(idS,String.valueOf(lvl+1),ant);
+                            Log.v("levelchoice","chole nai ");
+                            updateLevelAns();
+                            updateFeatures(lvl);
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            updateLevelAns();
+                            updateFeatures(lvl);
+                        }
+                    })
+                    .show();
+        }
+
+    }
 }

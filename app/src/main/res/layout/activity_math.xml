@@ -17,53 +17,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rsz_math"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="31dp"
         android:textAllCaps="false"
         android:textColor="?attr/colorError"
         android:textSize="80sp"
         android:textStyle="bold"
         app:fontFamily="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goTo" />
 
     <ImageButton
         android:id="@+id/buttoN_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginStart="55dp"
         android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttoN_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttoN_4" />
 
     <ImageButton
         android:id="@+id/buttoN_1"
         android:layout_width="wrap_content"
-        android:layout_height="137dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
         android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/butoN_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/butoN_2" />
 
     <ImageButton
         android:id="@+id/buttoN_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -72,11 +74,37 @@
         android:id="@+id/butoN_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="195dp"
         android:onClick="onClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttoN_4"
+        app:layout_constraintStart_toStartOf="@+id/buttoN_4" />
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@layout/mybutton"
+        android:textColor="#ffffff"
+        android:padding="10dp"
+        android:onClick="onClick"
+        android:text="GO TO "
+        app:layout_constraintEnd_toEndOf="@+id/mathImageView"
+        app:layout_constraintTop_toTopOf="@+id/mathImageView" />
 
 </android.support.constraint.ConstraintLayout>

@@ -23,43 +23,42 @@
         android:id="@+id/appleBttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginStart="35dp"
         android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/catBttn"
-        app:layout_constraintEnd_toStartOf="@+id/bananaBttn"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/bananaBttn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bananaBttn" />
 
     <ImageButton
         android:id="@+id/bananaBttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="226dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="225dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="53dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/appleBttn"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/catBttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginBottom="65dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/level" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/opt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="43dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="65dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -68,37 +67,46 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="95dp"
-        android:layout_marginBottom="59dp"
         android:layout_marginEnd="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="27dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bananaBttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/goTo" />
 
     <Button
         android:id="@+id/goTo"
-        android:layout_width="109dp"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:background="@layout/mybutton"
         android:onClick="onClick"
         android:padding="10dp"
         android:text="Go to"
         android:textColor="#ffffff"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/level"
+        app:layout_constraintTop_toTopOf="@+id/letters" />
 
     <TextView
         android:id="@+id/level"
-        android:layout_width="167dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="92dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/goTo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
