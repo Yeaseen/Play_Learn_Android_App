@@ -15,8 +15,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
-//        db.delete(TABLE_NAME, null, null);
+        //SQLiteDatabase db = this.getWritableDatabase();
+        //db.delete(TABLE_NAME, null, null);
 
     }
 

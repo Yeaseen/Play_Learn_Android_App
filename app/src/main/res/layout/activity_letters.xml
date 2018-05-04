@@ -51,7 +51,8 @@
         android:layout_marginStart="27dp"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level" />
 
     <ImageButton
         android:id="@+id/opt2"
@@ -80,13 +81,24 @@
 
     <Button
         android:id="@+id/goTo"
-        android:layout_width="wrap_content"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:background="@layout/mybutton"
         android:onClick="onClick"
+        android:padding="10dp"
         android:text="Go to"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/letters" />
+        android:textColor="#ffffff"
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="167dp"
+        android:layout_height="42dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="6dp" />
 
 </android.support.constraint.ConstraintLayout>

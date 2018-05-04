@@ -3,6 +3,7 @@ package com.example.asus.autism_project;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
@@ -30,7 +31,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
     Button goLevel;
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
-    public TextView txt;
+    public TextView txt,levelTxt;
     public int lvl;
     public int id;
     public int ans;
@@ -49,8 +50,11 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         updateFeatures(lvl);
     }
     public void updateFeatures(int lvl){
+
         txt=findViewById(R.id.textView);
         txt.setText(txtArray[lvl]);
+        levelTxt=findViewById(R.id.level);
+        levelTxt.setText("Current Level: "+(lvl+1));
         background = (ImageView)findViewById(R.id.letters);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -94,11 +98,14 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         while (res.moveToNext()) {
             String i=res.getString(0);
             id=Integer.parseInt(i);
+            Log.v("id no",String.valueOf(id));
             String m= res.getString(1);
-            Log.v("asi",m);
+            Log.v("level",m);
             lvl=Integer.parseInt(m)-1;
             String k=res.getString(2);
+            Log.v("ans",k);
             ans=Integer.parseInt(k)-1;
+
         }
         Log.v("getString(0)","kjk");
 
@@ -156,14 +163,50 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == goLevel){
             String[] arr;
             arr =new String[lvl+1];
-            for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + i;
+            for (int i = 0; i < lvl+1 ; i++) arr[i] = "Level " + String.valueOf(i+1);
 
-            DialogFragment newFragment= LevelChoice.newInstance(arr,1);
-            newFragment.show(getFragmentManager(),"dialog");
-            //updateLevelAns();
-            //updateFeatures(lvl);
-            Log.v("context","chole nai ");
+            CharSequence[] items=arr;
+//            DialogFragment newFragment= LevelChoice.newInstance(arr,1);
+//            newFragment.show(getFragmentManager(),"dialog");
+//            updateLevelAns();
+//            updateFeatures(lvl);
+           // Log.v("context","chole nai ");
 
+            new AlertDialog.Builder(Letters.this)
+           // new SweetAlertDialog
+                    .setTitle("Choose Level")
+                    .setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            lvl=i;
+                        }
+                    })
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Log.v("ans",String.valueOf(i));
+                            Cursor r= mydb.getAns(1,(lvl+1));
+                            String ant = null;
+                            while (r.moveToNext()) {
+                                ant=r.getString(0);
+                            }
+
+                            String idS = String.valueOf(10);
+                            Log.v("ans",idS);
+                            mydb.updateData(idS,String.valueOf(lvl+1),ant);
+                            Log.v("levelchoice","chole nai ");
+                            updateLevelAns();
+                            updateFeatures(lvl);
+
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    })
+                    .show();
         }
 
 

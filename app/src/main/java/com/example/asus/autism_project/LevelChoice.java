@@ -54,7 +54,7 @@ public class LevelChoice extends DialogFragment {
 
         builder = new AlertDialog.Builder(getActivity());
 
-        builder.setTitle("Choose level").setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+            builder.setTitle("Choose level").setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 selected= i;
