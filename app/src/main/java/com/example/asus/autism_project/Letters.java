@@ -21,12 +21,12 @@ import android.widget.Toast;
 
 public class Letters extends FragmentActivity implements View.OnClickListener {
 
-    int[] backgroundArray={R.drawable.letter1back,R.drawable.rsz_letter_2back,R.drawable.letter1back,R.drawable.rsz_letter_2back};
-    int[] button1Array={R.drawable.apple,R.drawable.rsz_horse,R.drawable.elephant,R.drawable.cat};
-    int[] button2Array={R.drawable.banana,R.drawable.rsz_fish,R.drawable.apple,R.drawable.rsz_horse};
-    int[] button3Array={R.drawable.elephant,R.drawable.rsz_ball,R.drawable.rsz_fish,R.drawable.rsz_doll};
-    int[] button4Array={R.drawable.cat,R.drawable.rsz_doll,R.drawable.cat,R.drawable.banana};
-    String[] txtArray={"A stands for....","B stands for......","C stands for.....","D stands for...."};
+    int[] backgroundArray={R.drawable.letter1back,R.drawable.rsz_letter_2back,R.drawable.letter1back,R.drawable.rsz_letter_2back,R.drawable.letter1back};
+    int[] button1Array={R.drawable.apple,R.drawable.rsz_horse,R.drawable.elephant,R.drawable.cat,R.drawable.elephant};
+    int[] button2Array={R.drawable.banana,R.drawable.rsz_fish,R.drawable.apple,R.drawable.rsz_horse,R.drawable.rsz_doll};
+    int[] button3Array={R.drawable.elephant,R.drawable.rsz_ball,R.drawable.rsz_fish,R.drawable.rsz_doll,R.drawable.apple};
+    int[] button4Array={R.drawable.cat,R.drawable.rsz_doll,R.drawable.cat,R.drawable.banana,R.drawable.cat};
+    String[] txtArray={"A stands for....","B stands for......","C stands for.....","D stands for....","E stands for...."};
 
     Button goLevel;
     ImageButton[] imgButton=new ImageButton[4];
@@ -122,7 +122,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<4){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -132,17 +132,16 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<4){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
-
             }
         }
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<4){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -152,7 +151,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<4){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);

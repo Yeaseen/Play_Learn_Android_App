@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 public class PlaySelect extends AppCompatActivity implements View.OnClickListener {
+
     private  Button letters_btn;
     private Button math_btn;
     private Button nmbr_btn;
     private Button pic_btn;
+
     public static DataBaseHelper mydb;
 
 
@@ -24,22 +26,30 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
         Cursor res = mydb.getAllData();
 
         if(res.getCount()==0){
+//letters id=1
 
             mydb.insertData("1","1","1");
             mydb.insertData("1","2","3");
             mydb.insertData("1","3","4");
             mydb.insertData("1","4","3");
+            mydb.insertData("1","5","1");
 
+//numbers id=2
 
             mydb.insertData("2","1","2");
             mydb.insertData("2","2","1");
             mydb.insertData("2","3","3");
             mydb.insertData("2","4","1");
 
+
+            //math id=3
+
             mydb.insertData("3","1","1");
             mydb.insertData("3","2","3");
             mydb.insertData("3","3","4");
             mydb.insertData("3","4","2");
+
+// puzzle id=4
 
             mydb.insertData("4","1","1");
             mydb.insertData("4","2","2");

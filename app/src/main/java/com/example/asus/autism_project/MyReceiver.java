@@ -17,12 +17,8 @@ public class MyReceiver extends BroadcastReceiver {
         String state = intent.getExtras().getString("extra");
         Log.e("Alarm_Receiver","we r in receiver and get from Breakfast: "+state);
 
-        //media_song= MediaPlayer.create(context,R.raw.dove);
-        //media_song.start();
-        Log.e("at recevr","not ok");
-
        Intent service_intent= new Intent(context,RingtonePlayingService.class);
-
+       service_intent.putExtra("extra", state);
        context.startService(service_intent);
     }
 }
