@@ -18,12 +18,12 @@ import android.widget.Toast;
 public class Math extends AppCompatActivity implements View.OnClickListener {
 
 
-    int[] backgroundArray={R.drawable.rsz_math,R.drawable.rsz_mathlvl2,R.drawable.rsz_math,R.drawable.rsz_mathlvl2};
-    int[] button1Array={R.drawable.opt3,R.drawable.opt7,R.drawable.opt1,R.drawable.opt7};
-    int[] button2Array={R.drawable.opt1,R.drawable.opt9,R.drawable.opt7,R.drawable.opt3};
-    int[] button3Array={R.drawable.opt2,R.drawable.opt5,R.drawable.opt5,R.drawable.opt9};
-    int[] button4Array={R.drawable.opt5,R.drawable.opt6,R.drawable.opt9,R.drawable.opt5};
-    String[] txtArray={" 1 + 2 ="," 5 - 0 ="," 3 * 3 ="," 9 / 3 ="};
+    int[] backgroundArray={R.drawable.rsz_math,R.drawable.rsz_mathlvl2,R.drawable.rsz_math,R.drawable.rsz_mathlvl2,R.drawable.rsz_math};
+    int[] button1Array={R.drawable.opt3,R.drawable.opt7,R.drawable.opt1,R.drawable.opt7,R.drawable.opt1};
+    int[] button2Array={R.drawable.opt1,R.drawable.opt9,R.drawable.opt7,R.drawable.opt3,R.drawable.opt2};
+    int[] button3Array={R.drawable.opt2,R.drawable.opt5,R.drawable.opt5,R.drawable.opt9,R.drawable.opt5};
+    int[] button4Array={R.drawable.opt5,R.drawable.opt6,R.drawable.opt9,R.drawable.opt5,R.drawable.opt9};
+    String[] txtArray={" 1 + 2 ="," 5 - 0 ="," 3 * 3 ="," 9 / 3 ="," 7 + 2 ="};
 
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
@@ -32,6 +32,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
     public int id;
     public int ans;
     public Button go_level;
+    public int total_level= button1Array.length;
 
     DataBaseHelper mydb;
 
@@ -118,7 +119,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -129,7 +130,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -140,7 +141,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -150,7 +151,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);

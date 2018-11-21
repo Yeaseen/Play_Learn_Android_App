@@ -36,6 +36,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
     public int id;
     public int ans;
 
+    public int total_level= button1Array.length;
     DataBaseHelper mydb;
 
     @Override
@@ -122,7 +123,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<4){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -132,7 +133,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<4){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -141,7 +142,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<4){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -151,7 +152,7 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<4){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);

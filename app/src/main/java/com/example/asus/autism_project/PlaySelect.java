@@ -48,6 +48,7 @@ public class PlaySelect extends AppCompatActivity implements View.OnClickListene
             mydb.insertData("3","2","3");
             mydb.insertData("3","3","4");
             mydb.insertData("3","4","2");
+            mydb.insertData("3","5","4");
 
 // puzzle id=4
 

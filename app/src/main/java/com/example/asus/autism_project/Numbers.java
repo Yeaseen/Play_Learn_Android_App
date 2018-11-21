@@ -31,6 +31,8 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
     public TextView txte;
     public Button go_level_;
 
+    public int total_level= button1Array.length;
+
 
 
     DataBaseHelper mydb;
@@ -108,7 +110,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -119,7 +121,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -130,7 +132,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -140,7 +142,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);

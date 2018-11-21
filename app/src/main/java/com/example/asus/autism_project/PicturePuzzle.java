@@ -34,6 +34,7 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
     public int id;
     public int ans;
 
+    public int total_level= button1Array.length;
     DataBaseHelper mydb;
 
     @Override
@@ -109,7 +110,7 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(PicturePuzzle.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -120,7 +121,7 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
         else if(view == imgButton[0] && ans!=0) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(PicturePuzzle.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
-            if(lvl<3){
+            if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
