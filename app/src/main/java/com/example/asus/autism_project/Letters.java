@@ -5,6 +5,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,8 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
     int[] button4Array={R.drawable.cat,R.drawable.rsz_doll,R.drawable.cat,R.drawable.banana,R.drawable.cat};
     String[] txtArray={"A stands for....","B stands for......","C stands for.....","D stands for....","E stands for...."};
 
+    int[] toneArray={R.raw.apple,R.raw.ball,R.raw.cat,R.raw.doll,R.raw.elephant};
+
     Button goLevel;
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
@@ -37,6 +40,8 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
     public int ans;
 
     public int total_level= button1Array.length;
+
+    public MediaPlayer media_song;
     DataBaseHelper mydb;
 
     @Override
@@ -123,6 +128,9 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
 
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            media_song = MediaPlayer.create(this,toneArray[ans]);
+            media_song.start();
+
             if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
@@ -133,6 +141,8 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            media_song = MediaPlayer.create(this,toneArray[ans]);
+            media_song.start();
             if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
@@ -142,6 +152,8 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            media_song = MediaPlayer.create(this,toneArray[ans]);
+            media_song.start();
             if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
@@ -152,6 +164,8 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
             Toast.makeText(Letters.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+            media_song = MediaPlayer.create(this,toneArray[ans]);
+            media_song.start();
             if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
