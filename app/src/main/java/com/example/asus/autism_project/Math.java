@@ -2,6 +2,7 @@ package com.example.asus.autism_project;
 
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
     int[] button4Array={R.drawable.opt5,R.drawable.opt6,R.drawable.opt9,R.drawable.opt5,R.drawable.opt9};
     String[] txtArray={" 1 + 2 ="," 5 - 0 ="," 3 * 3 ="," 9 / 3 ="," 7 + 2 ="};
 
+
+    int[] toneArray={R.raw.three,R.raw.five,R.raw.nine,R.raw.three,R.raw.nine};
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
     public TextView txt,level_text;
@@ -34,6 +37,7 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
     public Button go_level;
     public int total_level= button1Array.length;
 
+    public MediaPlayer media_song;
     DataBaseHelper mydb;
 
     @Override
@@ -118,6 +122,8 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         //there should be a for loop then update database for correct ans from dataabse and redirect the intent
 
         if(view == imgButton[0] && ans==0) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -129,7 +135,10 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         }
         else if(view == imgButton[0] && ans!=0) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[1] && ans==1) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
+
             if(lvl<total_level-1){
                 updateLevel();
                 updateLevelAns();
@@ -140,6 +149,8 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         }
         else if(view == imgButton[1] && ans!=1) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[2] && ans==2) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -150,6 +161,8 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
         }
         else if(view == imgButton[2] && ans!=2) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
         else if(view == imgButton[3] && ans==3) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Math.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
