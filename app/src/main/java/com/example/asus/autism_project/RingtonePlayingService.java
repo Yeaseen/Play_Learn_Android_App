@@ -57,7 +57,7 @@ public class RingtonePlayingService extends Service {
             Log.e("if there was not sound ", " and you want start");
 
 
-            media_song = MediaPlayer.create(this,R.raw.dove);
+            media_song = MediaPlayer.create(this,R.raw.alarm);
             media_song.start();
 
             this.isRunning = true;

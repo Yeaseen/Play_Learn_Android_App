@@ -2,6 +2,7 @@ package com.example.asus.autism_project;
 
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
     public int ans;
 
     public int total_level= button1Array.length;
+    public MediaPlayer media_song;
     DataBaseHelper mydb;
 
     @Override
@@ -111,6 +113,8 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
         if(view == imgButton[0] && ans==0) {
             Toast.makeText(PicturePuzzle.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
+                media_song = MediaPlayer.create(this,R.raw.correct);
+                media_song.start();
                 updateLevel();
                 updateLevelAns();
                 updateFeatures(lvl);
@@ -118,8 +122,15 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
             }
 
         }
-        else if(view == imgButton[0] && ans!=0) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[0] && ans!=0) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
+
         else if(view == imgButton[1] && ans==1) {
+            media_song = MediaPlayer.create(this,R.raw.correct);
+            media_song.start();
             Toast.makeText(PicturePuzzle.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -129,7 +140,11 @@ public class PicturePuzzle extends AppCompatActivity implements View.OnClickList
             }
 
         }
-        else if(view == imgButton[1] && ans!=1) Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[1] && ans!=1) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(PicturePuzzle.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
 
         else if(view == goooLevel){
             String[] arr;

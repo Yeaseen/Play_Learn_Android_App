@@ -133,7 +133,11 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
-        else if(view == imgButton[0] && ans!=0) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[0] && ans!=0) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[1] && ans==1) {
             media_song = MediaPlayer.create(this,toneArray[lvl]);
             media_song.start();
@@ -147,7 +151,11 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
-        else if(view == imgButton[1] && ans!=1) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[1] && ans!=1) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[2] && ans==2) {
             media_song = MediaPlayer.create(this,toneArray[lvl]);
             media_song.start();
@@ -159,7 +167,11 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[2] && ans!=2) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[2] && ans!=2) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[3] && ans==3) {
             media_song = MediaPlayer.create(this,toneArray[lvl]);
             media_song.start();
@@ -171,7 +183,11 @@ public class Math extends AppCompatActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[3] && ans!=3) Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[3] && ans!=3) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Math.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
 
         else if(view == go_level){
             String[] arr;

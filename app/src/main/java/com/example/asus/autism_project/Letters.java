@@ -139,7 +139,11 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[0] && ans!=0) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[0] && ans!=0) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[1] && ans==1) {
             media_song = MediaPlayer.create(this,toneArray[lvl]);
             media_song.start();
@@ -151,7 +155,11 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
                 updateFeatures(lvl);
             }
         }
-        else if(view == imgButton[1] && ans!=1) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[1] && ans!=1) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[2] && ans==2) {
             media_song = MediaPlayer.create(this,toneArray[lvl]);
             media_song.start();
@@ -164,7 +172,11 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[2] && ans!=2) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[2] && ans!=2) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[3] && ans==3) {
             media_song = MediaPlayer.create(this,toneArray[lvl]);
             media_song.start();
@@ -177,7 +189,11 @@ public class Letters extends FragmentActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[3] && ans!=3) Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[3] && ans!=3) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Letters.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == goLevel){
             String[] arr;
             arr =new String[lvl+1];

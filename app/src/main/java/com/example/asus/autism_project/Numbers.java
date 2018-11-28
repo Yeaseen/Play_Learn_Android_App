@@ -2,6 +2,7 @@ package com.example.asus.autism_project;
 
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
     int[] button3Array={R.drawable.rsz_copt8,R.drawable.rsz_copt3,R.drawable.rsz_copt9,R.drawable.rsz_copt5};
     int[] button4Array={R.drawable.rsz_copt5,R.drawable.rsz_opt1,R.drawable.rsz_opt2,R.drawable.rsz_opt1};
 
+    int[] toneArray={R.raw.two,R.raw.six,R.raw.nine,R.raw.five};
     ImageButton[] imgButton=new ImageButton[4];
     public ImageView background;
     public int lvl;
@@ -33,6 +35,7 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
 
     public int total_level= button1Array.length;
 
+    public MediaPlayer media_song;
 
 
     DataBaseHelper mydb;
@@ -109,6 +112,8 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
 
         if(view == imgButton[0] && ans==0) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -118,8 +123,14 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
-        else if(view == imgButton[0] && ans!=0) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[0] && ans!=0) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[1] && ans==1) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -129,8 +140,14 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
-        else if(view == imgButton[1] && ans!=1) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[1] && ans!=1) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[2] && ans==2) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -139,8 +156,14 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[2] && ans!=2) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[2] && ans!=2) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
         else if(view == imgButton[3] && ans==3) {
+            media_song = MediaPlayer.create(this,toneArray[lvl]);
+            media_song.start();
             Toast.makeText(Numbers.this,"Congratulations !!",Toast.LENGTH_SHORT).show();
             if(lvl<total_level-1){
                 updateLevel();
@@ -149,7 +172,11 @@ public class Numbers extends AppCompatActivity implements View.OnClickListener {
 
             }
         }
-        else if(view == imgButton[3] && ans!=3) Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        else if(view == imgButton[3] && ans!=3) {
+            media_song = MediaPlayer.create(this,R.raw.wrong);
+            media_song.start();
+            Toast.makeText(Numbers.this,"Ops, its not ok",Toast.LENGTH_SHORT).show();
+        }
 
         else if(view == go_level_){
             String[] arr;
